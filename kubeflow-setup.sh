@@ -89,7 +89,7 @@ _setup_installation_systemd_service(){
   sudo mkdir -p /opt/kubeflow-installation/
   echo "
 cd $HOME/KubeflowPipeline
-bash kubeflow.sh --cuda=$CUDA_VERSION --driver=$DRIVER_VERSION --gpu=$GPU_GPU_NUMBER --token=$GITHUB_ACCESS_TOKEN
+bash kubeflow.sh --cuda=$CUDA_VERSION --driver=$NVIDIA_DRIVER_VERSION --gpu=$GPU_NUMBER --token=$GITHUB_ACCESS_TOKEN
 " | sudo tee /opt/kubeflow-installation/start.sh
   echo "
 [Unit]
