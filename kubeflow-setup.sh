@@ -2,11 +2,11 @@
 # ------------------------------------------------------------------
 # Name:         kubeflow-setup.sh
 #
-# Author:       PlaiView
+# Author:       
 # Version:      1.0
 # Created Date: 18-05-2022
 #
-# Purpose:      PlaiView Kubeflow installation script
+# Purpose:      
 #
 # OS:           Ubuntu
 # Usage:        ./kubeflow-setup.sh
@@ -89,7 +89,7 @@ _setup_installation_systemd_service(){
   sudo mkdir -p /opt/kubeflow-installation/
   echo "
 cd $HOME/KubeflowPipeline
-bash kubeflow.sh --cuda=$CUDA --driver=$DRIVER --gpu=$GPU --token=$GITHUB_ACCESS_TOKEN
+bash kubeflow.sh --cuda=$CUDA_VERSION --driver=$DRIVER_VERSION --gpu=$GPU_NUMBER --token=$GITHUB_ACCESS_TOKEN
 " | sudo tee /opt/kubeflow-installation/start.sh
   echo "
 [Unit]
@@ -106,7 +106,6 @@ RestartSec=5s
 WantedBy=multi-user.target"  | sudo tee /etc/systemd/system/kubeflow-installation.service
   sudo systemctl enable kubeflow-installation
   sudo systemctl start kubeflow-installation
-  _success "Kubeflow-installation systemd service is enabled"
 }
 
 # ------------------------------------------------------------------------
@@ -118,7 +117,7 @@ _setup_repository(){
   source ~/.bashrc
   source /etc/environment
   cd $HOME
-  git clone "https://$GITHUB_ACCESS_TOKEN@github.com/PlaiView0/KubeflowPipeline.git"
+  git clone "https://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@github.com/PlaiView0/KubeflowPipeline.git"
 }
 
 # ------------------------------------------------------------------------
