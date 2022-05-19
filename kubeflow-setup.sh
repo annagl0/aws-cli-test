@@ -93,14 +93,12 @@ bash kubeflow.sh --cuda=$CUDA_VERSION --driver=$NVIDIA_DRIVER_VERSION --gpu=$GPU
 " | sudo tee /opt/kubeflow-installation/start.sh
   echo "
 [Unit]
-Description=Kubeflow-ui
+Description=Kubeflow-installation
 After=network.target
 
 [Service]
 Type=idle
 ExecStart= bash /opt/kubeflow-installation/start.sh
-Restart=on-failure
-RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target"  | sudo tee /etc/systemd/system/kubeflow-installation.service
